@@ -14,4 +14,8 @@ public class ClientController {
     public void modify(Client c){
         service.modify(c);
     }
+
+    public void removeById(long id){
+        service.removeById(id);
+    }
 }
