@@ -10,7 +10,7 @@ public class ClientServiceImpl implements ClientService{
         this.clientRepository = clientRepository;
     }
     @Override
-    public boolean save(Client c) {
+    public Client save(Client c) {
         System.out.println("Service Layer : ClientServiceImpl Level... ");
         return clientRepository.save(c);
     }

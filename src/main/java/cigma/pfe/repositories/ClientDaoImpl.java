@@ -15,11 +15,11 @@ public class ClientDaoImpl implements IClientDao {
     }
 
     @Override
-    public boolean save(Client c) {
+    public Client save(Client c) {
         em.getTransaction().begin();
         em.persist(c);
         em.getTransaction().commit();
-        return true;
+        return null;
     }
 
 }
