@@ -7,12 +7,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MonApplication {
     public static void main(String[] args) {
-        ApplicationContext context = new
+        ApplicationContext context= new
                 ClassPathXmlApplicationContext("spring.xml");
         ClientController ctrl = (ClientController)
-                context.getBean("controller");
-
-        Client client = new Client(1,"ALAMI");
-        ctrl.save(client);
+                context.getBean("idCtrl");
+        Client clt = new Client("OMAR");
+        ctrl.save(clt);
     }
 }

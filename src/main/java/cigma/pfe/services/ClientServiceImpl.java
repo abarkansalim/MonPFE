@@ -1,16 +1,16 @@
 package cigma.pfe.services;
 
 import cigma.pfe.models.Client;
-import cigma.pfe.repositories.ClientRepository;
+import cigma.pfe.repositories.IClientDao;
 
 public class ClientServiceImpl implements ClientService{
-    ClientRepository clientRepository ;
-    public ClientServiceImpl(ClientRepository clientRepository) {
+    IClientDao clientRepository ;
+    public ClientServiceImpl(IClientDao clientRepository) {
         System.out.println("Call ClientServiceImpl with ClientRepository param....");
         this.clientRepository = clientRepository;
     }
     @Override
-    public Client save(Client c) {
+    public boolean save(Client c) {
         System.out.println("Service Layer : ClientServiceImpl Level... ");
         return clientRepository.save(c);
     }

@@ -10,7 +10,7 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    public Client save(Client c ){
+    public boolean save(Client c ){
         System.out.println("ClientController level...");
         return clientService.save(c);
     }
