@@ -10,4 +10,8 @@ public class ClientController {
         System.out.println("ClientController level...");
         return clientService.save(c);
     }
+
+    public ClientController() {
+        System.out.println("Call ClientController ....");
+    }
 }

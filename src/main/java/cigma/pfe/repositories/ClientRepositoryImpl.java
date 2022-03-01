@@ -8,4 +8,8 @@ public class ClientRepositoryImpl implements ClientRepository{
         System.out.println("DAO Layer : ClientRepositoryImpl Level");
         return null;
     }
+    public ClientRepositoryImpl() {
+        System.out.println("Call ClientRepositoryImpl ....");
+    }
+
 }
