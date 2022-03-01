@@ -22,4 +22,10 @@ public class ClientServiceImpl implements IClientService {
     public void removeById(long id) {
         dao.deleteById(id);
     }
+
+    @Override
+    public Client getById(long id) {
+        return dao.findById(id);
+    }
+
 }

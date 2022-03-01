@@ -41,4 +41,9 @@ public class ClientDaoImpl implements IClientDao {
         em.getTransaction().commit();
     }
 
+    @Override
+    public Client findById(long idClient) {
+        return em.find(Client.class,idClient);
+    }
+
 }

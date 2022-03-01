@@ -18,4 +18,8 @@ public class ClientController {
     public void removeById(long id){
         service.removeById(id);
     }
+
+    public Client getById(long id){
+        return service.getById(id);
+    }
 }

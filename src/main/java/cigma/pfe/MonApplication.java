@@ -22,6 +22,9 @@ public class MonApplication {
         ctrl.modify(new Client(1,"new Name"));
 
         // Test remove use case for client with id==1
-        ctrl.removeById(1L);
+        //ctrl.removeById(1L);
+
+        // Test find use case for client with id==1
+        Client found = ctrl.getById(1L);
     }
 }
