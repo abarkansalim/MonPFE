@@ -22,4 +22,15 @@ public class ClientDaoImpl implements IClientDao {
         return null;
     }
 
+    @Override
+    public Client update(Client newClient) {
+        em.getTransaction().begin();
+        Client currentClient =
+                em.find(Client.class,newClient.getId());
+        currentClient.setName(newClient.getName());
+        em.persist(currentClient);
+        em.getTransaction().commit();
+        return null;
+    }
+
 }

@@ -7,11 +7,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MonApplication {
     public static void main(String[] args) {
-        ApplicationContext context= new
+        ApplicationContext context =new
                 ClassPathXmlApplicationContext("spring.xml");
         ClientController ctrl = (ClientController)
                 context.getBean("idCtrl");
-        Client clt = new Client("OMAR");
-        ctrl.save(clt);
+// Test save use case for three clients
+        ctrl.save(new Client("OMAR"));
+        ctrl.save(new Client("SIHAM"));
+        ctrl.save(new Client("AHMED"));
+        ctrl.save(new Client("FARAH"));
+// Test modify use case for client with id==1
+        ctrl.modify(new Client(1,"new Name"));
     }
 }

@@ -1,17 +1,14 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
         "https://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-    <bean id="idCtrl" class="cigma.pfe.controllers.ClientController"
-          scope="prototype">
+    <bean id="idCtrl" class="cigma.pfe.controllers.ClientController">
         <constructor-arg ref="service"/>
     </bean>
     <bean id="service"
-          class="cigma.pfe.services.ClientServiceImpl"
-          scope="prototype">
-        <constructor-arg ref="repository"/>
+          class="cigma.pfe.services.ClientServiceImpl">
+        <constructor-arg ref="dao"/>
     </bean>
 
-    <bean id="repository"
-          class="cigma.pfe.repositories.ClientDaoImpl"
-          scope="prototype"></bean>
+    <bean id="dao"
+          class="cigma.pfe.repositories.ClientDaoImpl"/>
 </beans>
