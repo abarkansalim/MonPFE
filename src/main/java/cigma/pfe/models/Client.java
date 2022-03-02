@@ -20,6 +20,20 @@ public class Client {
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
     private List<Facture> factures;
 
+    @ManyToMany(cascade = {CascadeType.PERSIST})
+    @JoinTable(name="my_join_table_client_promotion",joinColumns = @JoinColumn(
+            name = "client_fk",
+            referencedColumnName = "id"
+    ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "promotion_fk",
+                    referencedColumnName = "id"
+            ))
+    private List<Promotion> promotions;
+
+    @OneToOne(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    private CarteFidelio carteFidelio;
+
     public Client() {
     }
     public Client(String name) {
