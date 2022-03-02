@@ -11,4 +11,17 @@
 
     <bean id="dao"
           class="cigma.pfe.repositories.ClientDaoImpl"/>
+
+
+
+    <bean id="idCtrlF" class="cigma.pfe.controllers.FactureController">
+        <constructor-arg ref="serviceF"/>
+    </bean>
+    <bean id="serviceF"
+          class="cigma.pfe.services.FactureServiceImpl">
+        <constructor-arg ref="daoF"/>
+    </bean>
+
+    <bean id="daoF"
+          class="cigma.pfe.repositories.FactureDaoImpl"/>
 </beans>
