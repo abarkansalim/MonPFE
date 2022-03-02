@@ -2,15 +2,24 @@ package cigma.pfe.services;
 
 import cigma.pfe.models.Client;
 import cigma.pfe.repositories.IClientDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ClientServiceImpl implements IClientService {
+    @Autowired
     private IClientDao dao;
+
+    public ClientServiceImpl() {
+        System.out.println("creation bean service");
+    }
+
     public ClientServiceImpl(IClientDao dao) {
         this.dao = dao;
     }
     @Override
-    public Client save(Client c) {
-        return dao.save(c);
+    public void save(Client c) {
+       dao.save(c);
     }
 
     @Override

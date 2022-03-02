@@ -1,25 +1,23 @@
 package cigma.pfe.repositories;
 
 import cigma.pfe.models.Client;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
+@Repository
 public class ClientDaoImpl implements IClientDao {
-    EntityManagerFactory emf=
-            Persistence.createEntityManagerFactory("unit_clients");
-    EntityManager em=emf.createEntityManager();
+    @PersistenceContext
+    EntityManager em;
 
     public ClientDaoImpl() {
+        System.out.println("creation bean dao");
     }
 
     @Override
-    public Client save(Client c) {
-        em.getTransaction().begin();
+    public void save(Client c) {
         em.persist(c);
-        em.getTransaction().commit();
-        return null;
     }
 
     @Override
