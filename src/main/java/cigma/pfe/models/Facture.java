@@ -1,40 +1,35 @@
 package cigma.pfe.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
 
+@Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@Entity(name = "TFactures")
-@NoArgsConstructor
+@ToString
 public class Facture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column
-    private Date date;
-
-    @Column
     private double amount;
-
-    public Facture(Date date, double amount) {
-        this.date = date;
-        this.amount = amount;
+    private String description;
+    public Facture() {
     }
 
-    @Override
-    public String toString() {
-        return "Facture{" +
-                "id=" + id +
-                ", date='" + date + '\'' +
-                ", amount='" + amount + '\'' +
-                '}';
+    public double getAmount() {
+        return amount;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    public Facture(double amount, String description, Client client) {
+        this.amount = amount;
+        this.description = description;
+        this.client =client;
     }
 }

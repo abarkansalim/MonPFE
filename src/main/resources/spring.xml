@@ -1,7 +1,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
         "https://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-    <bean id="idCtrl" class="cigma.pfe.controllers.ClientController">
+    <bean id="ctrl1" class="cigma.pfe.controllers.ClientController">
         <constructor-arg ref="service"/>
     </bean>
     <bean id="service"
@@ -12,16 +12,4 @@
     <bean id="dao"
           class="cigma.pfe.repositories.ClientDaoImpl"/>
 
-
-
-    <bean id="idCtrlF" class="cigma.pfe.controllers.FactureController">
-        <constructor-arg ref="serviceF"/>
-    </bean>
-    <bean id="serviceF"
-          class="cigma.pfe.services.FactureServiceImpl">
-        <constructor-arg ref="daoF"/>
-    </bean>
-
-    <bean id="daoF"
-          class="cigma.pfe.repositories.FactureDaoImpl"/>
 </beans>
