@@ -1,4 +1,4 @@
-package cigma.pfe.repositories;
+package cigma.pfe.dao;
 
 import cigma.pfe.models.Client;
 

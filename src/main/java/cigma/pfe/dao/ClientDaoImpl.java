@@ -1,4 +1,4 @@
-package cigma.pfe.repositories;
+package cigma.pfe.dao;
 
 import cigma.pfe.models.Client;
 import org.springframework.stereotype.Repository;
@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 @Repository
 public class ClientDaoImpl implements IClientDao {
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
 
     public ClientDaoImpl() {
         System.out.println("creation bean dao");

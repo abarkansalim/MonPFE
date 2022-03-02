@@ -1,11 +1,13 @@
 package cigma.pfe.services;
 
+import cigma.pfe.dao.IClientDao;
 import cigma.pfe.models.Client;
-import cigma.pfe.repositories.IClientDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ClientServiceImpl implements IClientService {
     @Autowired
     private IClientDao dao;
