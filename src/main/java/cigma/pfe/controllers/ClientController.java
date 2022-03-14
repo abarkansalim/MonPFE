@@ -5,30 +5,21 @@ import cigma.pfe.services.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller("ctrl1")
 public class ClientController {
     @Autowired
-    private IClientService service ;
-
-    public ClientController() {
-        System.out.println("creation bean controller");
-    }
-
-    public ClientController(IClientService service) {
-        this.service = service;
-    }
-    public void save(Client c){
-        service.save(c);
-    }
-    public void modify(Client c){
-        service.modify(c);
-    }
-
-    public void removeById(long id){
-        service.removeById(id);
-    }
-
-    public Client getById(long id){
-        return service.getById(id);
+    private IClientService service;
+    public Client save(Client clt) {
+        return service.save(clt);
+    } public Client modify(Client clt) {
+        return service.modify(clt);
+    } public void remove(long idClt) {
+        service.remove(idClt);
+    } public Client getOne(long idClt) {
+        return service.getOne(idClt);
+    } public List<Client> getAll() {
+        return service.getAll();
     }
 }

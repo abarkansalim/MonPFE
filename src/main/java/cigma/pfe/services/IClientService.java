@@ -2,9 +2,12 @@ package cigma.pfe.services;
 
 import cigma.pfe.models.Client;
 
+import java.util.List;
+
 public interface IClientService {
-    void save(Client c);
-    Client modify(Client c);
-    void removeById(long id);
-    Client getById(long id);
+    Client save(Client clt);
+    Client modify(Client clt);
+    void remove(long idClt);
+    Client getOne(long idClt);
+    List<Client> getAll();
 }

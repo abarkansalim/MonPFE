@@ -6,37 +6,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
-@Transactional
 public class ClientServiceImpl implements IClientService {
     @Autowired
     private IClientDao dao;
-
-    public ClientServiceImpl() {
-        System.out.println("creation bean service");
-    }
-
-    public ClientServiceImpl(IClientDao dao) {
-        this.dao = dao;
+    @Override
+    @Transactional
+    public Client save(Client clt) {
+        return dao.save(clt);
     }
     @Override
-    public void save(Client c) {
-       dao.save(c);
+    @Transactional
+    public Client modify(Client newClt) {
+        Client oldClt = dao.findById(newClt.getId()).get();
+        oldClt.setName(newClt.getName());
+        return dao.save(oldClt);
     }
-
     @Override
-    public Client modify(Client c) {
-        return dao.update(c);
+    @Transactional
+    public void remove(long idClt) {
+        dao.deleteById(idClt);
     }
-
     @Override
-    public void removeById(long id) {
-        dao.deleteById(id);
+    public Client getOne(long idClt) {
+        return dao.findById(idClt).get();
     }
-
     @Override
-    public Client getById(long id) {
-        return dao.findById(id);
+    public List<Client> getAll() {
+        return (List<Client>) dao.findAll();
     }
 
 }
